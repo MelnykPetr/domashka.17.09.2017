@@ -1,0 +1,523 @@
+Создать массив из названий 5 стран мира. Вывести массив на экран при помощи print_r внутри тегов <pre></pre>
+
+<?php
+
+$myArray = array(10 => 'Brasilia', 20 => 'Canada',30=>'Poland',40=>'Germany',50=>'Ukraina');
+print_r($myArray);
+
+echo '<br>';
+
+
+echo '<pre>';
+print_r($myArray);
+echo '</pre>';
+?>
+Array ( [10] => Brasilia [20] => Canada [30] => Poland [40] => Germany [50] => Ukraina ) 
+Array
+(
+    [10] => Brasilia
+    [20] => Canada
+    [30] => Poland
+    [40] => Germany
+    [50] => Ukraina
+)
+
+<?php
+
+Создать ассоциативный массив из 5 элементов, в котором ключи - это названия стран, а значения элементов - это столицы стран. Вывести массив на экран
+
+$arr = array('India'=>'Deli', 'Germany'=>'Berlin', 'France' => 'Paris','Ukraina'=>'Kiev','Poland'=>'Warshawa');
+print_r($arr);
+Array ( [India] => Deli [Germany] => Berlin [France] => Paris [Ukraina] => Kiev [Poland] => Warshawa )
+
+Создать многомерный массив, который иллюстрирует список товаров. Каждый товар - это книга (художественная литература). Каждая книга имеет стиль, автора, название и цену. В списке товаров должно быть не менее 3 книг.
+<?php
+
+$style = array('roman' => 1, 'tragedia' => 2, 'love' => 3);
+$autor = array('Bulgakov' => 6, 'Tolstoy' => 3,'Donchova'=>9);
+$name_price = array('Master and Margarita'=>2,'War and Peace'=>10,'Agent 013'=>4);
+$general = array($style, $autor,$name_price);
+
+// output
+echo '<pre>';
+print_r($general);
+Array
+(
+    [0] => Array
+        (
+            [roman] => 1
+            [tragedia] => 2
+            [love] => 3
+        )
+
+    [1] => Array
+        (
+            [Bulgakov] => 6
+            [Tolstoy] => 3
+            [Donchova] => 9
+        )
+
+    [2] => Array
+        (
+            [Master and Margarita] => 2
+            [War and Peace] => 10
+            [Agent 013] => 4
+        )
+
+)
+Использование var_dump 
+<?php
+$a = false;
+$b = true;
+$c = null;
+
+// we get:  bool(true) bool(false) NULL NULL + notice
+var_dump($a, $b, $c, $some_undefined_var);
+
+echo '<br>';
+
+$a = false;
+$b = true;
+$c = null;
+
+$arr = array($a, $b, $c, 'some_array' => array(1, 2, 3));
+
+echo '<pre>';
+var_dump($arr);
+echo '</pre>';
+array(4) {
+  [0]=>
+  bool(false)
+  [1]=>
+  bool(true)
+  [2]=>
+  NULL
+  ["some_array"]=>
+  array(3) {
+    [0]=>
+    int(1)
+    [1]=>
+    int(2)
+    [2]=>
+    int(3)
+  }
+}
+
+22.Определить константы, которые соответствуют названиям нескольких стран мира. Используя эти константы, сформировать массив из соответствующих значений
+
+echo '</pre>';
+<?php
+
+define('Austria', 1.81);
+define('Italy', 8.9);
+
+// just another constant
+define('France', 'Hello, Paris!');
+
+echo Austria;
+echo '<br />';
+echo France;
+
+1.81
+Hello, Paris!
+
+23.Переменные переменных
+Создать скрипт, который бы вывел на экран значение переменной $$$$$hello. Значение может быть любым.
+<?php
+
+$hello = 'hey';
+$hey = 'bro';
+$bro = 'pilot';
+$pilot='allo';
+$allo='Hello, Spania ) ';
+
+echo $hello;
+echo '<br>';
+echo $$$$$hello; // Hello, Spania  )
+?>
+hey
+Hello, Spania )
+
+24.Ссылки 
+<?php
+
+$a = 4;
+$b = 'Hello';
+$x = & $y;
+
+$x = 21;
+echo $y; // 21
+
+$y++;
+echo $x; //22
+?>
+2122
+
+24.Приведение типов (скалярные типы)
+<?php
+
+echo 'To boolean <br>'; 
+
+$a = 0;
+$b = -15;
+$c = 23.5;
+
+// false, true, true
+var_dump( (bool)$a, (bool)$b, (bool)$c );
+
+echo '<br>';
+
+$a = 'hello';
+$b = '0';
+$c = '';
+
+// true, false, false
+var_dump( (bool)$a, (bool)$b, (bool)$c );
+
+
+echo '<br>To numbers <br>';
+
+$a = false;
+$b = 3.654;
+$c = '-2 items';
+$d = ' 0.5kg';
+$e = 'Added 10 points ';
+
+// 0, 3, -2, 0.5, 0
+var_dump( (int)$a, (int)$b, (int)$c, (float)$d, (float)$e );
+
+echo '<br>To strings <br>';
+
+To boolean 
+bool(false) bool(true) bool(true) 
+bool(true) bool(false) bool(false) 
+To numbers 
+int(0) int(3) int(-2) float(0.5) float(0) 
+To strings 
+
+25.Приведение типов (массивы)
+объект (Object), ресурс (Resource), а также, так называемый, callbacks.
+26.Предопределенные переменные
+$_SERVER - ассоциативный массив, который содержит информацию, которой обладает сервер. Например, $_SERVER['REMOTE_ADDR'] содержит IP-адрес клиента.
+
+$_GET, $_POST - ассоциативные массивы, в которых хранятся значения параметров запроса
+
+$_REQUEST - ассоциативный массив, в котором хранится информация об HTTP запросе
+
+$_SESSION - ассоциативный массив для работы с сессиями (сеансами)
+
+$_COOKIE - ассоциативный массив для работы с куками
+
+$GLOBALS - ассоциативный массив, который содержит значения всех глобальных переменных
+Создать форму, которая содержит поля name, email, phone. Задать скрипт, который выведет на экран отправленные данные - $_POST или $_GET (в зависимости от свойств формы)
+<!DOCTYPE html>
+ <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <title>formy</title>
+      <link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>		
+</body>
+<div>
+
+<h1 id="header">formy</h1>
+	<div>
+				<form action="formdata.php" method="POST" name="form1"></form>
+            <form>
+			     login:<input type="name" name="name"></br>
+			     e-mail:<input type="e-mail" name="e-mail"></br>
+				Phone:<input type="Phone" name="Phone"></br>
+				Message:<textarea type="message" >Message</textarea></br>
+			   <input type="submit"/>
+		    </form>
+		   <form>
+		      <p><span>php kurs</span></p>
+		           <label>php
+		              <input type="radio" name="radio" value="yes" checked>
+		           </label>
+		          <label>css
+		             <input type="radio" name="radio" value="no" >
+		          </label>
+		     <p><span>Select your?</span></p>	
+		          <label><input type="checkbox" name="" checked>Yes</label>
+		          <label><input type="checkbox" name="" >NO</label>
+		          <label><input type="checkbox" name="">maybe</label>
+		    </form>
+			  
+		    <form><p><span>countries</span></p>
+	              <select multiple name="countries">
+    	            <option selected value="0">Select your country</option>
+		            <option value='za'>Zimbabwe</option>
+		            <option value='es'>Spain</option>
+		            <option value='en'>England</option>
+		            <option value='ua' selected>Ukraine</option>
+		            <option value='de'>Germany</option>
+		            <option disabled value='ussr'>USSR</option>
+                  </select>
+              </form>	
+            </div>  
+</div> 
+<div>
+<?php
+$result = mail('test@mail','login:$_POST[name] e-mail:$_POST[e-mail] Phone:$_POST[Phone] Message:$_POST[Message]' );
+if ($result){
+	echo '<p>сообщение отправлено</p>';
+}
+else {
+	echo '<p>сообщение  не отправлено</p>'
+}
+?>
+</div> 
+<h1 id="header">formy</h1>
+	<div>
+</body>
+</html>
+
+29. Использование isset
+<?php
+$a = 'Hello';  // defined
+$b = 5; // defined
+$c = null;  // null
+
+var_dump(isset($a)); // bool(true)
+var_dump(isset($b)); // bool(true)
+var_dump(isset($c)); // bool(false)
+
+var_dump(isset($some_undefined_var)); // bool(false)
+?>
+30.Удаление переменной при помощи unset
+<?php
+$a = 256; // just some variable
+$fruits= array('apples' => 5, 'bananas' => 10, 'oranges' => 3);
+
+unset($a); // now $a is null
+unset($fruits['bananas']); // now we don't have any babanas in array
+print_r($fruits);
+?>Array ( [apples] => 5 [oranges] => 3 )
+30.Сериализация .
+Создать форму с полями username, email, message. Сериализовать данные, полученные при отправке формы и вывести полученную строку на экран.
+<!DOCTYPE html>
+ <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <title>Сериализация</title>
+      <link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>		
+</body>
+<form action="index.php" method="POST" name="form"></form>
+		
+            <form>
+			     login:<input type="name" name="name"></br>
+			     e-mail:<input type="e-mail" name="e-mail"></br>
+				message:<input type="message" name="message"></br>
+				username:<textarea type="username" >username</textarea></br>
+			   <input type="submit"/>
+		    </form>
+<?php
+
+$result = mail('test@mail','login:$_POST[name] ,e-mail:$_POST[e-mail], message:$_POST[message], username:$_POST[username]' );
+if ($result){
+	echo '<p>сообщение отправлено</p>';
+}
+else {
+	echo '<p>сообщение  не отправлено</p>';
+}
+?>
+</body>
+</html>
+
+31.Распространенные ошибки .
+<?php
+$a = 'hello';
+$str = "This is some $aworld"; // we got notice since $aworld is undefined
+$str1 = "This is some $a world"; // thats ok, but not quite fine
+$str2 = "This is some {$a} world"; // thats cool
+
+echo $str; // oops
+ 
+32.Арифметические операторы
+Вычислить количество секунд в году и присвоить это значение переменной. Вычислить остаток от деления этого значения на 2
+365x24x3600=31536000%2=0
+<?php
+$a = 365; 
+$b = 24; 
+$c = 3600;
+$d = $a * $b * $c; 
+
+$e = $d % 2; // we have 0 
+
+
+echo '<br>';
+
+echo $e; 
+
+33.Операторы инкремента и декремента
+<?php
+$a = 1;
+$a++; // 2
+echo $a . '<br>';
+$a--; // 1
+
+echo $a++; // first output, then increase
+echo '<br>';
+
+echo $a . '<br>';
+
+echo ++$a; // first increase, then output
+
+
+$a = 10;
+$a += 21; // same as $a = $a + 21
+$a -= 15; // same as $a = $a - 15;
+
+$a = 5;
+$a *= 2; // same as $a = $a * 2
+$a /= 2; // same as $a = $a / 2;
+34.Строковые операторы
+Создать строку, содержащую число 123456 используя лишь отдельные цифры 1,2,3,4,5,6 и операцию конкатенации
+<?php
+$a = '1';
+$b = ',2';
+$c = ',3';
+$d = ',4';
+$e = ',5';
+$f = $a . $b . $c . $d . $e;
+
+
+echo $f .= ',6';
+1,2,3,4,5,6
+
+35.Логические операторы
+
+//$a = true && false; // 1 * 0 = 0 (false)
+//$a = false && true; // 0 * 1 = 0 (false)
+//$a = false && false; // 0 * 0 = 0 (false)
+//$a = true && true; // 1 * 1 = 1 (true)
+
+//$a = true || false; // 1 + 0 = 1 (true)
+//$a = false || true; // 0 + 1 = 1 (true)
+//$a = false || false; // 0 + 0 = 0 (false)
+//$a = true || true; // 1 + 1 = 2 (true)
+
+//$a = true xor false; // (1 + 0) % 2 = 1 (true)
+//$a = false xor true; // (0 + 1) % 2 = 1 (true)
+//$a = true xor true; // (1 + 1) % 2 = 0 (false)
+//$a = false xor false; // (0 + 0) % 2 = 0 (false)
+
+Вычислить значение выражения: false && true || false && true || !false && true =false
+Вывести на экран true/false в зависимости о того, делится переменная $x на 2 или нет
+<php
+$b =true xor true;
+
+$x = $b % 2 == 0; 
+  if ($x){
+	  echo '$x=true';
+  }
+  else {
+	   echo 'x=false';
+  }
+x=false
+
+36.Создать алгоритм обмена значениями двух переменных не используя третьей.
+<?php
+$a=4;
+$b=5;
+$a = $a ^ $b;
+$b = $b ^ $a;
+$a = $a ^ $b;
+echo $a,$b;
+54
+44. Конструкции условий: if / else / elseif
+Создать алгоритм вычисления максимального значения двух заданных переменных
+<?php
+$x = 125;
+$y = 5;
+
+if ($y > $x) {
+	$message = "max {$y} ";
+} elseif ($y < $x) {
+	$message = "min {$y} ";
+} else {
+	$message = " {$y} not > <";
+}
+
+echo $message;
+?>  min 5
+45.Тернарный оператор
+Создать алгоритм вычисления максимального значения двух заданных переменных при помощи тернарного оператора
+<?php
+$a = false ? 12 : 230;
+echo $a;  230
+46.Конструкция switch / case 
+Создать алгоритм вычисления максимального значения двух переменных при помощи switch
+<?php
+$a = 13;
+$d = 10;
+switch ($a > $d) {    
+    case 1: echo '$a > $d '; break;
+    case 2: echo '$a < $d '; break;
+    
+    default: echo 'Sorry man';
+}
+47. Циклы: for 
+Создать алгоритм определения всех простых чисел в промежутке от 1 до 100 при помощи for. Простое число - это число которое делится только на себя и на 1
+<?php
+for ($x%1 == 0; $x<100; $x++) {
+	echo $x;
+}
+	
+?>
+48. Циклы while / do-while 
+Создать алгоритм определения всех простых чисел в промежутке от 1 до 100 при помощи while. Простое число - это число которое делится только на себя и на 1
+<?php
+$x %1== 0;
+do {
+     echo $x;
+} while ($x++<100);
+?>
+49.Цикл foreach 
+Создать массив из 10 любых числовых значений. При помощи foreach вывести на экран те значения, которые делятся на 3
+<?php
+$ar = [1,3,42,7,9,137,0,2,6, 5,];
+foreach ($ar as $i) {
+    if ($i % 3 == 0) {
+      echo $i . '/3 <br>';
+    } else {
+        echo $i . ' not /3 <br>';
+    }
+}
+?>
+50.Выполнить предыдущие задания при помощи альтернативного синтаксиса
+51.Создать алгоритм для определения первого найденного простого числа в промежутке от 200 до 400.
+<?php 
+for ($i = 200; $i <= 400; $i++) {
+	echo  "Check for {$i} ... ";
+	if ($i % 1 == 0) {
+		echo 'gotcha! ';
+		break;
+	}
+	echo 'nope ';
+}
+52.Как можно упростить функцию test() в данном скрипте?
+<?php
+function test($x, $y)
+{
+	if ($y == 0) {
+		return false;
+	}
+
+	return $x / $y;
+
+}
+<?php
+echo test(1, 0) or die('Error');
+echo 'Unreached line';
+
+<?php 
+function test($x, $y)
+{
+return ($y == 0) ? die('Error') : ($x / $y);
+}
+
+echo test(16,8);
+
